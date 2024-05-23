@@ -26,11 +26,11 @@ ip link set veth-green netns green
 ip link set veth-green-br master v-net-0
 
 echo "Assigning IPs to the networks"
-ip -n red addr add 192.168.15.1 dev veth-red
+ip -n red addr add 192.168.15.1/24 dev veth-red
 ip -n red link set veth-red up
-ip -n blue addr add 192.168.15.2 dev veth-blue
+ip -n blue addr add 192.168.15.2/24 dev veth-red
 ip -n blue link set veth-blue up
-ip -n green addr add 192.168.15.3 dev veth-green
+ip -n green addr add 192.168.15.3/24 dev veth-red
 ip -n green link set veth-green up
-ip -n yellow addr add 192.168.15.4 dev veth-yellow
+ip -n yellow addr add 192.168.15.4/24 dev veth-red
 ip -n yellow link set veth-yellow up
